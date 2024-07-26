@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7719064256200088173}
+  - component: {fileID: 789978230146781556}
   m_Layer: 0
   m_Name: customer_crazy_A
   m_TagString: Untagged
@@ -32,6 +33,22 @@ Transform:
   - {fileID: 5720216582137651922}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &789978230146781556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371404645330383424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3704ed0e8bd561449a5fba58f0e5f6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distToFacePlayer: 4
+  rotSpeed: 3
+  idleDuration: 5
+  wanderRadius: 5
 --- !u!1001 &5253717047893837113
 PrefabInstance:
   m_ObjectHideFlags: 0
