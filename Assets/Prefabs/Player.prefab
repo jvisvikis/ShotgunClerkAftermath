@@ -68,7 +68,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 4174242111693496264}
   - component: {fileID: 1870521117490001840}
   m_Layer: 0
-  m_Name: Virtual Camera
+  m_Name: PlayerVCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,7 +343,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 1
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 5690399069450461082}
@@ -396,6 +396,7 @@ GameObject:
   - component: {fileID: 590879708638900537}
   - component: {fileID: 4010654965017440356}
   - component: {fileID: 7775493669480058806}
+  - component: {fileID: 6342738629255698943}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -539,8 +540,25 @@ MonoBehaviour:
   itemLayer:
     serializedVersion: 2
     m_Bits: 64
+  whiteBoardLayer:
+    serializedVersion: 2
+    m_Bits: 128
   shotgunPosOffset: {x: 0.7, y: -0.3, z: 0.6}
   shotgunPickup: {fileID: 8300000, guid: c76487c0368313848b9992cd8babb788, type: 3}
+--- !u!114 &6342738629255698943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758238713976356754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676a6be983e7d264798dfc47f677b34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerVCam: {fileID: 4174242111693496264}
+  whiteboardVCam: {fileID: 0}
 --- !u!1 &6220921671040247612
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private float recoilForce = -400f;
     [SerializeField] private LayerMask itemLayer;
+    [SerializeField] private LayerMask whiteBoardLayer;
     [SerializeField] private Vector3 shotgunPosOffset;
     [SerializeField] private AudioClip shotgunPickup;
 
@@ -20,7 +21,8 @@ public class PlayerController : MonoBehaviour
     private ShotgunFire shotgun;
     private Camera cam;
     private CharacterController controller;    
-    private Vector3 playerVelocity; 
+    private Vector3 playerVelocity;
+    private SwitchCamera switchCamera; 
 
     //Managers
     private InputManager inputManager;
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        switchCamera = GetComponent<SwitchCamera>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         cam = Camera.main;    
@@ -38,15 +41,19 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
 
-        if(inputManager.PlayerFired() && itemEquipped == null)
+        if(inputManager.PlayerFired())
         {
-            GrabItem();
+            Interact();
         }
-        else if(inputManager.PlayerFired())
-        {
-            shotgun.Shoot();
-            DropItem();
-        }
+        // if(inputManager.PlayerFired() && itemEquipped == null)
+        // {
+        //     GrabItem();
+        // }
+        // else if(inputManager.PlayerFired())
+        // {
+        //     shotgun.Shoot();
+        //     DropItem();
+        // }
         
         
         
@@ -63,25 +70,43 @@ public class PlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
-    private void GrabItem()
+    private void Interact()
     {
         RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, grabDistance))
         {
-            if(itemLayer == (itemLayer | (1 << hit.collider.gameObject.layer)))
+            if(whiteBoardLayer == (whiteBoardLayer | (1 << hit.collider.gameObject.layer)))
             {
-                if(shotgunPickup != null)
-                    AudioManager.instance.Play3DAudio(shotgunPickup, transform);
-
-                itemEquipped = hit.collider.gameObject.transform.root.gameObject;
-                itemEquipped.GetComponent<Rigidbody>().isKinematic = true;
-                itemEquipped.transform.parent = cam.transform;
-                itemEquipped.transform.localPosition = shotgunPosOffset;
-                itemEquipped.transform.localRotation = Quaternion.Euler(0,-5,0);
-                shotgun = itemEquipped.GetComponent<ShotgunFire>();
+                switchCamera.SwitchPriority();
+                return;
             }
-            
+            if(itemLayer == (itemLayer | (1 << hit.collider.gameObject.layer)) && itemEquipped == null)
+            {
+                GrabItem(hit);
+                return;
+            } 
+        }
+
+        if(shotgun != null)
+            {
+                shotgun.Shoot();
+                DropItem();
+            }
+    }
+
+    private void GrabItem(RaycastHit hit)
+    {
+        if(itemLayer == (itemLayer | (1 << hit.collider.gameObject.layer)))
+        {
+            if(shotgunPickup != null)
+                AudioManager.instance.Play3DAudio(shotgunPickup, transform);
+
+            itemEquipped = hit.collider.gameObject.transform.root.gameObject;
+            itemEquipped.GetComponent<Rigidbody>().isKinematic = true;
+            itemEquipped.transform.parent = cam.transform;
+            itemEquipped.transform.localPosition = shotgunPosOffset;
+            itemEquipped.transform.localRotation = Quaternion.Euler(0,-5,0);
+            shotgun = itemEquipped.GetComponent<ShotgunFire>();
         }
     }
 
@@ -93,7 +118,6 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(itemEquipped.transform.forward * recoilForce);
         
         itemEquipped.transform.parent = null;
-        //Destroy(itemEquipped, 3);
         itemEquipped = null;
         shotgun = null;
     }
