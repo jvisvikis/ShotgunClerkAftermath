@@ -51,8 +51,8 @@ public class InputManager : MonoBehaviour
         return playerControls.Player.Fire.triggered;
     }
 
-    public bool PlayerPaused()
+    public bool PlayerExit()
     {
-        return playerControls.Player.Pause.triggered;
+        return playerControls.Player.Exit.triggered;
     }
 }

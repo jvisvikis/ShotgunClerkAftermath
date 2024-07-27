@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip shotgunPickup;
 
     private bool groundedPlayer;
-    
+    private bool usingWhiteboard;
 
     public GameObject itemEquipped {get;private set;}
     private ShotgunFire shotgun;
@@ -41,21 +41,10 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
 
-        if(inputManager.PlayerFired())
+        if(inputManager.PlayerFired() && !usingWhiteboard)
         {
             Interact();
-        }
-        // if(inputManager.PlayerFired() && itemEquipped == null)
-        // {
-        //     GrabItem();
-        // }
-        // else if(inputManager.PlayerFired())
-        // {
-        //     shotgun.Shoot();
-        //     DropItem();
-        // }
-        
-        
+        }      
         
     }
 
@@ -78,6 +67,9 @@ public class PlayerController : MonoBehaviour
             if(whiteBoardLayer == (whiteBoardLayer | (1 << hit.collider.gameObject.layer)))
             {
                 switchCamera.SwitchPriority();
+                usingWhiteboard = true;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
                 return;
             }
             if(itemLayer == (itemLayer | (1 << hit.collider.gameObject.layer)) && itemEquipped == null)

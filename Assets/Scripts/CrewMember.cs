@@ -91,8 +91,6 @@ public class CrewMember : MonoBehaviour
         return navHit.position;
     }
 
-    
-
     private enum AgentState{
         Idle,
         Wandering,
