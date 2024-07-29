@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Recoil))]
 public class ShotgunFire : MonoBehaviour
 {
+    [Header ("Bullets")]
     [SerializeField] private float bulletRange;
     [SerializeField] private float maxBulletOffset;    
     [SerializeField] private int numBullets;
 
+    [Header ("Components")]
     [SerializeField] private AudioClip shotgunBlast;
     [SerializeField] private LayerMask canHitMask;
     [SerializeField] private Transform bulletSpawn;
     [SerializeField] private TrailRenderer trail;
 
     private Transform cam;
+    private Recoil recoil;
     private InputManager inputManager;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main.transform;
+        recoil = GetComponent<Recoil>();
         inputManager = InputManager.instance;    
     }
 
@@ -29,6 +34,7 @@ public class ShotgunFire : MonoBehaviour
         if(inputManager.PlayerFired())
         {
             AudioManager.instance.Play3DAudio(shotgunBlast, bulletSpawn);
+            recoil.RecoilFire();
             Vector3 [] bulletDir = new Vector3[numBullets];
             for(int i = 0; i < bulletDir.Length; i++)
             {
