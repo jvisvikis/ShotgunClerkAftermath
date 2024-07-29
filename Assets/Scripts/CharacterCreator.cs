@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CharacterCreator : MonoBehaviour
 {
@@ -14,9 +15,8 @@ public class CharacterCreator : MonoBehaviour
 
     public void ChangeHead(bool next)
     {
-        heads.partsIdx = next ? ++heads.partsIdx : --heads.partsIdx;
-        Debug.Log(heads.partsIdx);
         Destroy(head);
+        heads.partsIdx = next ? ++heads.partsIdx : --heads.partsIdx;
         head = Instantiate(heads.parts[heads.partsIdx%heads.parts.Length], blankCharacter.transform);
         head.transform.localPosition = new Vector3(0,heads.yOffset,0);
     }
@@ -39,8 +39,17 @@ public class CharacterCreator : MonoBehaviour
 
     public void CreateCharacter()
     {
+        if(head == null || upperBody == null)
+        {
+            return;
+        }
+        blankCharacter.AddComponent<NavMeshAgent>();
+        blankCharacter.AddComponent<CrewMember>();
         blankCharacter.transform.position = Vector3.zero;
         blankCharacter.transform.parent = null;
+        head = null;
+        upperBody = null;
+        lowerBody = null;
         blankCharacter = Instantiate(new GameObject(), gameObject.transform);
         blankCharacter.transform.localPosition = Vector3.zero; 
     }

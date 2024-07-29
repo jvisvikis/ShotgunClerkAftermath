@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42808cbf81cafbd4ba50da08d8782b52, type: 3}
   m_Name: UpperBodyParts
   m_EditorClassIdentifier: 
+  yOffset: 0
   parts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8199471352865698919, guid: ae350dcdebcf16c428e056eb66d0f809, type: 3}
+  - {fileID: 8308739018966275190, guid: abda1cb1e746738479610203c8b6088a, type: 3}
+  - {fileID: 6082920943184459458, guid: fc405625c931ba44fb6d305f5fd1cb12, type: 3}
+  - {fileID: 4677201208901874989, guid: 0ff96501e4d0ace43a907c4a504928d4, type: 3}
+  - {fileID: 2562105017932913903, guid: 33734eaa8812da74dbbfd8a6bbbb677a, type: 3}
+  - {fileID: 6950245705081935790, guid: 386d5e17c96c42648a24179de0119fd5, type: 3}
+  partsIdx: 0
