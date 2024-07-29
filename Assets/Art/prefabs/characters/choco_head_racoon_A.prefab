@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4916510746296709559}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_head_racoon_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 7057721136062301334}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0020887256, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4014359684176112597}
   - component: {fileID: 2656201380016192775}
   - component: {fileID: 7106143187643883985}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_head_racoon_A_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 7357669573719453471}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000033577217, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.0559857, z: 0}
+  m_LocalPosition: {x: 0, y: 1.254255, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

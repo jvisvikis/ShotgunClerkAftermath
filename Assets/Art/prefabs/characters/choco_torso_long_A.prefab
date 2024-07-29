@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5337341831367904575}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_torso_long_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1560937032507921348}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0020887256, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2287238655113014285}
   - component: {fileID: 4135848216674899628}
   - component: {fileID: 2819813297474490476}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_torso_long_A_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

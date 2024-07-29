@@ -17,11 +17,15 @@ public class SwitchCamera : MonoBehaviour
         {
             playerVCam.Priority = 1;
             whiteboardVCam.Priority = 0;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
             playerVCam.Priority = 0;
             whiteboardVCam.Priority = 1;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 }

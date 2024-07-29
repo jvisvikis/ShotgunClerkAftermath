@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 154314035284464298}
   - component: {fileID: 3675114720883558720}
   - component: {fileID: 6110107289906874244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_head_01_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6748883708848406613}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000033577217, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2459431, z: 0}
+  m_LocalPosition: {x: 0, y: 1.254255, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1927265378013795129}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_head_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 8276338636532568986}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0020887256, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42808cbf81cafbd4ba50da08d8782b52, type: 3}
   m_Name: LowerBodyParts
   m_EditorClassIdentifier: 
+  shortYOffset: -0.1
+  longYOffset: 0
   parts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3072665192917893932, guid: 7056082e2784d4443a6e8b744b207cb3, type: 3}
+  - {fileID: 295469417914443009, guid: 206281b77b397d44682e794ef2391c65, type: 3}
+  - {fileID: 5108186868618996787, guid: c83b9266efa42e54180d45d9e3760ae2, type: 3}
+  - {fileID: 5110180466669571860, guid: c482b1c164ff03b4b9a4a4cc9065d6c7, type: 3}
+  - {fileID: 2993502615818450139, guid: 548523a813bd0064bb53c843044bf2a8, type: 3}
+  - {fileID: 8949437797265821910, guid: 22a06b1d86ed8754d97055b48d0b5609, type: 3}
+  - {fileID: 5276375048586032543, guid: 343d52a2fb3f21941bcbc8cd0e717ac0, type: 3}
+  partsIdx: 58

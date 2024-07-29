@@ -41,11 +41,8 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
 
-        if(inputManager.PlayerFired() && !usingWhiteboard)
-        {
-            Interact();
-        }      
-        
+        if(inputManager.PlayerFired() && !usingWhiteboard) Interact();
+        if(inputManager.PlayerExited() && usingWhiteboard) StopUsingWhiteBoard();       
     }
 
     private void MovePlayer()
@@ -68,8 +65,6 @@ public class PlayerController : MonoBehaviour
             {
                 switchCamera.SwitchPriority();
                 usingWhiteboard = true;
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.Confined;
                 return;
             }
             if(itemLayer == (itemLayer | (1 << hit.collider.gameObject.layer)) && itemEquipped == null)
@@ -112,5 +107,11 @@ public class PlayerController : MonoBehaviour
         itemEquipped.transform.parent = null;
         itemEquipped = null;
         shotgun = null;
+    }
+
+    public void StopUsingWhiteBoard()
+    {
+        usingWhiteboard = false;
+        switchCamera.SwitchPriority();
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6166884112467265289}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_head_ninja_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4205424979406975286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0020887256, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 957623927167013772}
   - component: {fileID: 2364505138557224600}
   - component: {fileID: 689957717620470382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_head_ninja_B_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

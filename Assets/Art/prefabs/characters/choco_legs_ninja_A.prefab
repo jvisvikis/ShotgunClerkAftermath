@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4777630456701035606}
   - component: {fileID: 8148395815844408322}
   - component: {fileID: 2459072308893487930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_ninja_legs_A_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3684700183781532072}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_legs_ninja_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 5108186868618996787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0020887256, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

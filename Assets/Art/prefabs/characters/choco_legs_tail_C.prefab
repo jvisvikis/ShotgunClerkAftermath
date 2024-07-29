@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2733489441620460239}
   - component: {fileID: 3494266688164237584}
   - component: {fileID: 5026881899916031993}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_legs_tail_C_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3933592115995520710}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_legs_tail_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 5276375048586032543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0020887256, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

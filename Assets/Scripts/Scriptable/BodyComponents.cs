@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BodyComponents", menuName = "ScriptableObjects/BodyComponents")]
 public class BodyComponents : ScriptableObject
 {
-    public float yOffset;
+    public float shortYOffset;
+    public float longYOffset;
     public GameObject [] parts;
     public int partsIdx;
 }

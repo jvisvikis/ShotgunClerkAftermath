@@ -51,7 +51,7 @@ public class InputManager : MonoBehaviour
         return playerControls.Player.Fire.triggered;
     }
 
-    public bool PlayerExit()
+    public bool PlayerExited()
     {
         return playerControls.Player.Exit.triggered;
     }
