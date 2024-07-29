@@ -473,7 +473,7 @@ MonoBehaviour:
   itemLayer:
     serializedVersion: 2
     m_Bits: 64
-  whiteBoardLayer:
+  interactableLayer:
     serializedVersion: 2
     m_Bits: 128
   shotgunPosOffset: {x: 0.7, y: -0.3, z: 0.6}

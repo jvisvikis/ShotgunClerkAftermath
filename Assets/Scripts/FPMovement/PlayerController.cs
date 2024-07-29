@@ -10,12 +10,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private float recoilForce = -400f;
     [SerializeField] private LayerMask itemLayer;
-    [SerializeField] private LayerMask whiteBoardLayer;
+    [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private Vector3 shotgunPosOffset;
     [SerializeField] private AudioClip shotgunPickup;
 
+    public bool usingWhiteboard {get; set;}
     private bool groundedPlayer;
-    private bool usingWhiteboard;
 
     public GameObject itemEquipped {get;private set;}
     private ShotgunFire shotgun;
@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     private SwitchCamera switchCamera; 
 
-    //Managers
     private InputManager inputManager;
 
     void Start()
@@ -61,15 +60,14 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, grabDistance))
         {
-            if(whiteBoardLayer == (whiteBoardLayer | (1 << hit.collider.gameObject.layer)))
+            if(interactableLayer == (interactableLayer | (1 << hit.collider.gameObject.layer)))
             {
-                switchCamera.SwitchPriority();
-                usingWhiteboard = true;
+                hit.collider.gameObject.GetComponent<Interactable>().Interact();
                 return;
             }
             if(itemLayer == (itemLayer | (1 << hit.collider.gameObject.layer)) && itemEquipped == null)
             {
-                GrabItem(hit);
+                GrabItem(hit.collider.gameObject.transform.root.gameObject);
                 return;
             } 
         }
@@ -81,20 +79,17 @@ public class PlayerController : MonoBehaviour
             }
     }
 
-    private void GrabItem(RaycastHit hit)
+    private void GrabItem(GameObject item)
     {
-        if(itemLayer == (itemLayer | (1 << hit.collider.gameObject.layer)))
-        {
-            if(shotgunPickup != null)
-                AudioManager.instance.Play3DAudio(shotgunPickup, transform);
+        if(shotgunPickup != null)
+            AudioManager.instance.Play3DAudio(shotgunPickup, transform);
 
-            itemEquipped = hit.collider.gameObject.transform.root.gameObject;
-            itemEquipped.GetComponent<Rigidbody>().isKinematic = true;
-            itemEquipped.transform.parent = cam.transform;
-            itemEquipped.transform.localPosition = shotgunPosOffset;
-            itemEquipped.transform.localRotation = Quaternion.Euler(0,-5,0);
-            shotgun = itemEquipped.GetComponent<ShotgunFire>();
-        }
+        itemEquipped = item;
+        itemEquipped.GetComponent<Rigidbody>().isKinematic = true;
+        itemEquipped.transform.parent = cam.transform;
+        itemEquipped.transform.localPosition = shotgunPosOffset;
+        itemEquipped.transform.localRotation = Quaternion.Euler(0,-5,0);
+        shotgun = itemEquipped.GetComponent<ShotgunFire>();
     }
 
 
@@ -109,9 +104,21 @@ public class PlayerController : MonoBehaviour
         shotgun = null;
     }
 
+    public void StartUsingWhiteBoard()
+    {
+        usingWhiteboard = true;
+        switchCamera.SwitchPriority();        
+    }
+
     public void StopUsingWhiteBoard()
     {
         usingWhiteboard = false;
         switchCamera.SwitchPriority();
+    }
+
+    public void TakeShotgun(GameObject shotgun)
+    {
+        shotgun = Instantiate(shotgun);
+        GrabItem(shotgun);
     }
 }
