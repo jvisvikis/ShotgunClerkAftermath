@@ -27,8 +27,8 @@ public class CharacterCreator : MonoBehaviour
         Destroy(head);
         heads.partsIdx = next ? ++heads.partsIdx : --heads.partsIdx;
         head = Instantiate(heads.parts[heads.partsIdx%heads.parts.Length], blankCharacter.transform);
-        head.transform.localPosition = oldPos;
         if(upperBody != null) head.transform.parent = upperBody.transform;
+        head.transform.localPosition = oldPos;        
     }
 
     public void ChangeUpperBody(bool next)
