@@ -8,15 +8,17 @@ public class CharacterCreator : MonoBehaviour
     [SerializeField] private BodyComponents heads;
     [SerializeField] private BodyComponents upperBodies;
     [SerializeField] private BodyComponents lowerBodies;
-    [SerializeField] private GameObject blankCharacter;
-    [SerializeField] private GameObject head;
-    [SerializeField] private GameObject upperBody;
-    [SerializeField] private GameObject lowerBody;
+    [SerializeField] private GameObject blankCharacterPrefab;
+    private GameObject blankCharacter;
+    private GameObject head;
+    private GameObject upperBody;
+    private GameObject lowerBody;
 
     private PlayerController player;
-    void Start()
+    void Awake()
     {
         player = FindObjectOfType<PlayerController>().GetComponent<PlayerController>();
+        ResetComponents();
     }
     public void ChangeHead(bool next)
     {
@@ -68,10 +70,9 @@ public class CharacterCreator : MonoBehaviour
         {
             return;
         }
-        blankCharacter.AddComponent<NavMeshAgent>();
-        blankCharacter.AddComponent<CrewMember>();
         blankCharacter.transform.position = Vector3.zero;
-        blankCharacter.layer = 0;
+        blankCharacter.AddComponent<CrewMember>();
+        blankCharacter.layer = 9;
         ResetComponents();
         player.StopUsingWhiteBoard();
     }
@@ -81,7 +82,7 @@ public class CharacterCreator : MonoBehaviour
         head = null;
         upperBody = null;
         lowerBody = null;
-        blankCharacter = Instantiate(new GameObject(), gameObject.transform);
+        blankCharacter = Instantiate(blankCharacterPrefab, gameObject.transform);
         blankCharacter.transform.localPosition = Vector3.zero; 
     }
 }

@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
     {
         usingWhiteboard = false;
         switchCamera.SwitchPriority();
+        UIManager.instance.ToggleCrosshairVisibility();
     }
 
     public void TakeShotgun(GameObject shotgun)

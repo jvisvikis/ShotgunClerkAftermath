@@ -8,5 +8,6 @@ public class Whiteboard : Interactable
     public override void Interact()
     {
         player.StartUsingWhiteBoard();
+        UIManager.instance.ToggleCrosshairVisibility();
     }
 }

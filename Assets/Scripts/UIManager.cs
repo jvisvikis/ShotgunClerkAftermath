@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    [SerializeField] private GameObject crosshair;
+
     void Awake()
     {
         if(instance != null && instance != this)
@@ -19,6 +21,11 @@ public class UIManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
+    }
+
+    public void ToggleCrosshairVisibility()
+    {
+        crosshair.SetActive(!crosshair.activeSelf);
     }
 
     

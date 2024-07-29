@@ -113,7 +113,7 @@ MonoBehaviour:
   shotgunBlast: {fileID: 8300000, guid: 031fc3284fcc58b4582696634a295928, type: 3}
   canHitMask:
     serializedVersion: 2
-    m_Bits: 123
+    m_Bits: 635
   bulletSpawn: {fileID: 1458322732474091737}
   trail: {fileID: 7322077780853487261, guid: 53c7a0cf40f2f1c44902a6d81c6223f0, type: 3}
 --- !u!65 &1018208085366475328

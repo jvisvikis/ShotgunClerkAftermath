@@ -16,11 +16,17 @@ public class CrewMember : MonoBehaviour
     private NavMeshAgent agent;
     private AgentState state;
     private Transform playerTransform;
+    private Rigidbody rigidbody;
+    private List<Rigidbody> rbs;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         state = AgentState.Wandering;
         agent = GetComponent<NavMeshAgent>();
+        rigidbody = GetComponent<Rigidbody>();
+        rbs = new List<Rigidbody>();
+        rigidbody.isKinematic = true;
+        rbs.Add(rigidbody);
         playerTransform = FindObjectOfType<PlayerController>().transform;
     }
 
@@ -69,6 +75,27 @@ public class CrewMember : MonoBehaviour
                     }
                     break;
             }
+    }
+
+    public void Die()
+    {
+        if(state == AgentState.Dead)
+        {
+            return;
+        }
+        state = AgentState.Dead;
+        agent.enabled = false;
+        DisableKinematics();   
+        rigidbody.AddForce(transform.forward * -500f);
+        GameManager.instance.AddDeadMember(this);
+    }
+
+    private void DisableKinematics()
+    {
+        foreach(Rigidbody rb in rbs)
+        {
+            rb.isKinematic = false;
+        }
     }
 
     private void FaceTransform(Transform target)
