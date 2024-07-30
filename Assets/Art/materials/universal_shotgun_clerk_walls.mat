@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: universal_shotgun_clerk_no_frenel
+  m_Name: universal_shotgun_clerk_walls
   m_Shader: {fileID: -6465566751694194690, guid: 792f7b46941ee564cada19c543032d39,
     type: 3}
   m_Parent: {fileID: 2100000, guid: 2046ed9aba4964b4bbf394436781c71b, type: 2}
@@ -25,21 +25,21 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Triplanar_Texture:
-        m_Texture: {fileID: 2800000, guid: 374f8bb291b7e1d4db3a67d147ed397c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9ca7d4a72cf0852468f320986d6f06c6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Blending: 1
     - _Colour_Power: 1
-    - _Frenel_Power: 0.59
-    - _Texture_Intensity: 1.4
-    - _Tiling: 1.43
-    - _Triplanar_Texture_1: 0
+    - _Texture_Intensity: 0.64
+    - _Tiling: 0.2
+    - _Triplanar_Texture_1: 1
     m_Colors:
     - _Frenel_Colour: {r: 0, g: 0, b: 0, a: 0}
-    - _Shadow_Colour: {r: 0.9150943, g: 0.8613225, b: 0.82444817, a: 0}
+    - _Shadow_Colour: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &2862709948293425226
+--- !u!114 &377331273459414564
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
