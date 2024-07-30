@@ -14,9 +14,13 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private Vector3 shotgunPlacementPos = new Vector3(0.05f, 1f, -0.19f); //Placement for crew member
     [SerializeField] private Vector3 shotgunPlacementRot = new Vector3(35f, -88.726f, -100.713f); //Placement for crew member
     [SerializeField] private AudioClip shotgunPickup;
+    [SerializeField] private string [] handOverLines;
+    [SerializeField] private AudioClip [] handOverAudioLines;
 
     public bool usingWhiteboard {get; set;}
     private bool shotOnce;
+    private bool handOverOnce;
+    private bool playedAudio;
 
     public GameObject itemEquipped {get;private set;}
     private ShotgunFire shotgun;
@@ -135,6 +139,11 @@ public class PlayerInteract : MonoBehaviour
                 itemEquipped.GetComponent<Recoil>().enabled = false;
                 itemEquipped = null;
                 shotgun = null;
+                if(!handOverOnce)
+                {
+                    handOverOnce = true;
+                    StartCoroutine(FindObjectOfType<Father>().StartTalking(handOverLines,handOverAudioLines,0,2));
+                }
 
             }
         }

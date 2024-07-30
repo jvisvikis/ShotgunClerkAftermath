@@ -247,6 +247,12 @@ MonoBehaviour:
   - Go ahead. Okay. Over there... Go ahead...
   - And make some new crew members for our-ou-ou--our heist child
   - The chocolate template is right over there for you to create your new crew.
+  afterCreationLines:
+  - Oh...Dear......Child...
+  - You must be careful with these things.
+  - You must only shoot your creation
+  - If you really. Want. To punch it in the face!
+  - Go make another creation and hand over the shotgun next time.
   audioClips:
   - {fileID: 8300000, guid: bdf41e96839d8834ba10f962298f7423, type: 3}
   - {fileID: 8300000, guid: 713b291a6d958ad4fa62a642a643645c, type: 3}
@@ -263,6 +269,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d5b130c5d7e16a44d876f8dcb6eb11ae, type: 3}
   - {fileID: 8300000, guid: 5e777e35dfee7534181a44e054d8ff86, type: 3}
   - {fileID: 8300000, guid: 374d4348317d770489c6364e776df4a6, type: 3}
+  afterCreationAudioClips:
+  - {fileID: 8300000, guid: e1fe78932fb20ef4b9f29d905a177662, type: 3}
+  - {fileID: 8300000, guid: 9adaf691d6e088940823009f1aa1feef, type: 3}
+  - {fileID: 8300000, guid: e1e526595498f0446b86e56339b6e76f, type: 3}
+  - {fileID: 8300000, guid: f76476239c19f374191c84b242fd9a8e, type: 3}
+  - {fileID: 8300000, guid: abddb15821aa41b409447cedf1ac2b7c, type: 3}
 --- !u!1 &6353924204364363914
 GameObject:
   m_ObjectHideFlags: 0

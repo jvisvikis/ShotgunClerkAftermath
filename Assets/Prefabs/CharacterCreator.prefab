@@ -45,6 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2e7a2f74dce5549a012a14fc2de377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fatherCreationLine: {fileID: 8300000, guid: b6df7d6a3ed262a4faa0a8e3a3ee5b09, type: 3}
+  afterCreationAudioLine: {fileID: 8300000, guid: 254cfc91ea40c944db2759dd6ff48af0,
+    type: 3}
+  afterCreationLineString: Now kiddo. Our crew member is going to need a shotgun.
+    Go fetch them one please...
   heads: {fileID: 11400000, guid: 329262143c989ba4cbc05a2628a46670, type: 2}
   upperBodies: {fileID: 11400000, guid: ddd3180383e326d43add9361a66f3d77, type: 2}
   lowerBodies: {fileID: 11400000, guid: e6dc8f6827f48c342ba7e01ed3a4d30b, type: 2}

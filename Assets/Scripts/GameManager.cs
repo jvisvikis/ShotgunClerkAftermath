@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float maxDeadMembers;
     [SerializeField] private float numMembersSuccess;
 
+    private bool playedAudio;
     private int successfulHeists;
     private List<CrewMember> deadMembers;
     private List<CrewMember> aliveMembers;
@@ -31,6 +32,11 @@ public class GameManager : MonoBehaviour
 
     public void AddDeadMember(CrewMember member)
     {
+        if(!playedAudio)
+        {
+            playedAudio = true;
+            FindObjectOfType<Father>().AfterCreationLines();
+        }
         if(deadMembers.Count >= maxDeadMembers) 
         {   
             Destroy(deadMembers[0].gameObject);

@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject crosshair;
     [SerializeField] private TextMeshProUGUI useText;
     [SerializeField] private TextMeshProUGUI cantHeistText;
+    [SerializeField] private TextMeshProUGUI subtitles;
 
     public TextDisplay textDisplay{get;set;}
 
@@ -27,6 +28,11 @@ public class UIManager : MonoBehaviour
             textDisplay = GetComponent<TextDisplay>();
             DontDestroyOnLoad(this);
         }
+    }
+
+    public void ToggleSubtitlesVisibility()
+    {
+
     }
 
     public void ToggleCrosshairVisibility()

@@ -9,7 +9,9 @@ public class Father : MonoBehaviour
     
     [SerializeField] private float rotSpeed = 3f;
     [SerializeField] private string [] voiceLines;
+    [SerializeField] private string [] afterCreationLines;
     [SerializeField] private AudioClip [] audioClips;
+    [SerializeField] private AudioClip [] afterCreationAudioClips;
 
     private AudioManager audioManager;
     private GameManager gameManager;
@@ -35,8 +37,6 @@ public class Father : MonoBehaviour
     void Update()
     {
         FacePlayer();
-
-        startedTalking = true;      
     }
 
     private void FacePlayer()
@@ -47,9 +47,14 @@ public class Father : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * rotSpeed);
     }
 
+    public void AfterCreationLines()
+    {
+        StartCoroutine(StartTalking(afterCreationLines, afterCreationAudioClips,0, afterCreationAudioClips.Length));
+    }
+
     public IEnumerator StartTalking(string [] lines, AudioClip[] audioClips, int idx, int stopIdx)
     {
-
+        animator.SetBool("Talking", true);
         audioManager.Play2DAudio(audioClips[idx], 1f, false, false);
         textDisplay.TypeLine(lines[idx]);
         yield return new WaitForSeconds(audioClips[idx].length);
@@ -61,6 +66,7 @@ public class Father : MonoBehaviour
         else if(idx < audioClips.Length )
         {
             animator.SetBool("Talking", false);
+            textDisplay.TypeLine(" ");
             while(!stopCondition)
             {
                 yield return null;
@@ -74,6 +80,7 @@ public class Father : MonoBehaviour
         {
             stoppedTalking = true;
             animator.SetBool("Talking", false);
+            textDisplay.TypeLine(" ");
         }      
     }
 

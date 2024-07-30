@@ -5,16 +5,20 @@ using UnityEngine.AI;
 
 public class CharacterCreator : MonoBehaviour
 {
+    [SerializeField] private AudioClip fatherCreationLine;
+    [SerializeField] private AudioClip afterCreationAudioLine;
+    [SerializeField] private string afterCreationLineString;
     [SerializeField] private BodyComponents heads;
     [SerializeField] private BodyComponents upperBodies;
     [SerializeField] private BodyComponents lowerBodies;
     [SerializeField] private GameObject blankCharacterPrefab;
+    private bool intro;
     private GameObject blankCharacter;
     private GameObject head;
     private GameObject upperBody;
     private GameObject lowerBody;
-
     private PlayerInteract player;
+
     void Awake()
     {
         player = FindObjectOfType<PlayerInteract>().GetComponent<PlayerInteract>();
@@ -76,6 +80,21 @@ public class CharacterCreator : MonoBehaviour
         blankCharacter.layer = 9;
         ResetComponents();
         player.StopUsingWhiteBoard();
+        AudioManager.instance.Play2DAudio(fatherCreationLine,1f,false,false);
+        
+        if(!intro)
+        {
+            intro = true;
+            StartCoroutine(ContinueAudio());
+        }
+    }
+
+    public IEnumerator ContinueAudio()
+    {
+        yield return new WaitForSeconds(fatherCreationLine.length + 1f);
+        AudioClip [] audio = {afterCreationAudioLine};
+        string [] line = {afterCreationLineString};
+        StartCoroutine(FindObjectOfType<Father>().StartTalking(line, audio, 0, 1));
     }
 
     private void ResetComponents()

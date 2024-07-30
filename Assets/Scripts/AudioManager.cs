@@ -42,7 +42,8 @@ public class AudioManager : MonoBehaviour
         AudioSource audio = Instantiate(audio2dPrefab, transform.position, Quaternion.identity);
         audio.clip = audioClip;
         audio.loop = loopable;
-        audio.Play();        
+        audio.Play();
+        if(!loopable) Destroy(audio, audioClip.length);        
         if(fadeIn) StartCoroutine(FadeIn(audio, volume, 3f));
     }
 
