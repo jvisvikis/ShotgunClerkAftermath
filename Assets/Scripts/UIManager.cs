@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject crosshair;
     [SerializeField] private TextMeshProUGUI useText;
+    [SerializeField] private TextMeshProUGUI cantHeistText;
 
     void Awake()
     {
@@ -33,6 +34,31 @@ public class UIManager : MonoBehaviour
     {
         useText.text = text;
     }
+
+    public IEnumerator FadeInAndOutText(string text, float duration)
+    {
+        float fadeDuration = duration/2;
+        float timer = 0;
+        cantHeistText.text = text;
+        //fade in
+        while(timer < fadeDuration)
+        {
+            cantHeistText.alpha = timer/fadeDuration;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        timer = 0;
+
+        while(timer < fadeDuration)
+        {
+            cantHeistText.alpha = 1 - timer/fadeDuration;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        cantHeistText.alpha = 0;
+    } 
 
     
 }

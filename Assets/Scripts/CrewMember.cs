@@ -12,6 +12,7 @@ public class CrewMember : MonoBehaviour
     [SerializeField] private float wanderRadius = 5f;
     [SerializeField] private float knockbackForce = 500f;
 
+    public bool hasShotgun {get;set;}
     private float idleTimer;
 
     public Transform upperBody {get;set;}

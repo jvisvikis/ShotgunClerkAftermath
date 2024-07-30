@@ -16,6 +16,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private AudioClip shotgunPickup;
 
     public bool usingWhiteboard {get; set;}
+    private bool shotOnce;
 
     public GameObject itemEquipped {get;private set;}
     private ShotgunFire shotgun;
@@ -62,6 +63,7 @@ public class PlayerInteract : MonoBehaviour
             if(crewLayer == (crewLayer | (1 << hit.collider.gameObject.layer)) && itemEquipped != null)
             {
                 UIManager.instance.SetUseText("Give");
+                if(shotOnce) UIManager.instance.SetUseText("H to give");
                 return;
             } 
         } 
@@ -87,6 +89,7 @@ public class PlayerInteract : MonoBehaviour
 
         if(shotgun != null)
             {
+                shotOnce = true;
                 shotgun.Shoot();
                 DropItem();
             }
@@ -125,6 +128,7 @@ public class PlayerInteract : MonoBehaviour
             if(crewLayer == (crewLayer | (1 << hit.collider.gameObject.layer)))
             {
                 CrewMember member = hit.collider.gameObject.GetComponent<CrewMember>();
+                member.hasShotgun = true;
                 itemEquipped.transform.parent = member.transform;
                 itemEquipped.transform.localPosition = shotgunPlacementPos;
                 itemEquipped.transform.localRotation = Quaternion.Euler(shotgunPlacementRot);
