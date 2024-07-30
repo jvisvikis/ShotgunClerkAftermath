@@ -33,7 +33,7 @@ Material:
     - _Blending: 1
     - _Colour_Power: 1
     - _Texture_Intensity: 0.64
-    - _Tiling: 0.25
+    - _Tiling: 0.2
     - _Triplanar_Texture_1: 1
     m_Colors:
     - _Frenel_Colour: {r: 0, g: 0, b: 0, a: 0}

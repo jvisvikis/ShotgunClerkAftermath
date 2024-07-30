@@ -23,12 +23,17 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Triplanar_Texture:
+        m_Texture: {fileID: 2800000, guid: 2ec2e607f6ae558429342f476b372f46, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Colour_Power: 0.829
+    - _Colour_Power: 0.98
     - _Frenel_Power: 28.58
-    - _Texture_Intensity: 1.2
+    - _Texture_Intensity: 1.12
+    - _Tiling: 0.31
     - _Triplanar_Texture_1: 1
     m_Colors:
     - _Frenel_Colour: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 0}
