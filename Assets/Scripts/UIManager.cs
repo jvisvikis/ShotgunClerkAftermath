@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[RequireComponent(typeof(TextDisplay))]
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
@@ -11,6 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject crosshair;
     [SerializeField] private TextMeshProUGUI useText;
     [SerializeField] private TextMeshProUGUI cantHeistText;
+
+    public TextDisplay textDisplay{get;set;}
 
     void Awake()
     {
@@ -21,6 +24,7 @@ public class UIManager : MonoBehaviour
         else
         {
             instance = this;
+            textDisplay = GetComponent<TextDisplay>();
             DontDestroyOnLoad(this);
         }
     }

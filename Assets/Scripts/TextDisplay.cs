@@ -6,14 +6,8 @@ using TMPro;
 
 public class TextDisplay : MonoBehaviour
 {
-    [SerializeField] private string speechTotext;
-    [SerializeField] private float charactersPerSecond = 90;
-    [SerializeField] private float textInterval;
+    [SerializeField] private float charactersPerSecond = 25;
     [SerializeField] private TextMeshProUGUI dialogueText;
-
-    //private AudioManager audioManager;
-    //private int idx;
-    // Start is called before the first frame update
 
     public void TypeLine(string line)
     {

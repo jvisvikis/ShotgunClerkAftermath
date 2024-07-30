@@ -37,12 +37,13 @@ public class AudioManager : MonoBehaviour
         Destroy(audio.gameObject, clipLength);
     }
 
-    public void Play2DAudio(AudioClip audioClip, float volume, bool fadeIn)
+    public void Play2DAudio(AudioClip audioClip, float volume, bool fadeIn, bool loopable)
     {
         AudioSource audio = Instantiate(audio2dPrefab, transform.position, Quaternion.identity);
         audio.clip = audioClip;
-        audio.Play();
-        StartCoroutine(FadeIn(audio, volume2d, 3f));
+        audio.loop = loopable;
+        audio.Play();        
+        if(fadeIn) StartCoroutine(FadeIn(audio, volume, 3f));
     }
 
     public IEnumerator FadeIn(AudioSource audio, float maxVolume, float duration)
