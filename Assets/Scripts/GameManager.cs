@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float numMembersSuccess;
 
     private bool playedAudio;
+    private bool tutorialAudioPlayed;
     private int successfulHeists;
     private List<CrewMember> deadMembers;
     private List<CrewMember> aliveMembers;
@@ -53,6 +54,12 @@ public class GameManager : MonoBehaviour
 
     public void GoHeist()
     {
+        if(!AllHaveShotgun())
+        {
+            StartCoroutine(UIManager.instance.FadeInAndOutText("Not all members are armed", 3f));
+            return;
+        }
+
         if(aliveMembers.Count >= numMembersSuccess && AllHaveShotgun())
         {
 
@@ -62,12 +69,17 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(UIManager.instance.FadeInAndOutText("Not enough members", 3f));
         }
-        if(!AllHaveShotgun())
+
+    }
+
+    public void OnSceneLoad()
+    {
+        if(FindObjectOfType<Father>() != null && !tutorialAudioPlayed) 
         {
-            StartCoroutine(UIManager.instance.FadeInAndOutText("Not all members are armed", 3f));
+            tutorialAudioPlayed = true;
+            FindObjectOfType<Father>().StartIntro();
         }
-
-
+       
     }
 
     private bool AllHaveShotgun()

@@ -35,7 +35,7 @@ public class ScenesManager : MonoBehaviour
     // called second
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
+        GameManager.instance.OnSceneLoad();
     }
     
     public void ReloadActiveScene()

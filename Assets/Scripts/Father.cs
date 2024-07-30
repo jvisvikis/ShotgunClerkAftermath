@@ -23,15 +23,11 @@ public class Father : MonoBehaviour
     private GameObject player;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        audioManager = AudioManager.instance;
         gameManager = GameManager.instance;
         textDisplay = UIManager.instance.textDisplay;
         player = FindObjectOfType<PlayerController>().gameObject;
-
-        animator.SetBool("Talking", true); 
-        StartCoroutine(StartTalking(voiceLines, audioClips, 0, audioClips.Length));
     }
 
     void Update()
@@ -52,11 +48,17 @@ public class Father : MonoBehaviour
         StartCoroutine(StartTalking(afterCreationLines, afterCreationAudioClips,0, afterCreationAudioClips.Length));
     }
 
+    public void StartIntro()
+    {
+        animator.SetBool("Talking", true); 
+        StartCoroutine(StartTalking(voiceLines, audioClips, 0, audioClips.Length));
+    }
+
     public IEnumerator StartTalking(string [] lines, AudioClip[] audioClips, int idx, int stopIdx)
     {
         animator.SetBool("Talking", true);
-        audioManager.Play2DAudio(audioClips[idx], 1f, false, false);
-        textDisplay.TypeLine(lines[idx]);
+        AudioManager.instance.Play2DAudio(audioClips[idx], 1f, false, false);
+        UIManager.instance.textDisplay.TypeLine(lines[idx]);
         yield return new WaitForSeconds(audioClips[idx].length);
         idx++;
         if(idx < stopIdx || (stopCondition && idx < audioClips.Length))
@@ -66,7 +68,7 @@ public class Father : MonoBehaviour
         else if(idx < audioClips.Length )
         {
             animator.SetBool("Talking", false);
-            textDisplay.TypeLine(" ");
+            UIManager.instance.textDisplay.TypeLine(" ");
             while(!stopCondition)
             {
                 yield return null;
@@ -80,7 +82,7 @@ public class Father : MonoBehaviour
         {
             stoppedTalking = true;
             animator.SetBool("Talking", false);
-            textDisplay.TypeLine(" ");
+            UIManager.instance.textDisplay.TypeLine(" ");
         }      
     }
 
