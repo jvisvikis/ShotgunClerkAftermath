@@ -10,23 +10,25 @@ public class CrewMember : MonoBehaviour
     [SerializeField] private float rotSpeed = 7f;
     [SerializeField] private float idleDuration = 5f;
     [SerializeField] private float wanderRadius = 5f;
+    [SerializeField] private float knockbackForce = 500f;
 
     private float idleTimer;
 
+    public Transform upperBody {get;set;}
     private NavMeshAgent agent;
     private AgentState state;
     private Transform playerTransform;
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
     private List<Rigidbody> rbs;
     // Start is called before the first frame update
     void Awake()
     {
         state = AgentState.Wandering;
         agent = GetComponent<NavMeshAgent>();
-        rigidbody = GetComponent<Rigidbody>();
-        rbs = new List<Rigidbody>();
-        rigidbody.isKinematic = true;
-        rbs.Add(rigidbody);
+        rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+        rbs = new List<Rigidbody>();        
+        rbs.Add(GetComponent<Rigidbody>());
         playerTransform = FindObjectOfType<PlayerController>().transform;
     }
 
@@ -77,7 +79,7 @@ public class CrewMember : MonoBehaviour
             }
     }
 
-    public void Die()
+    public void Die(Vector3 dir)
     {
         if(state == AgentState.Dead)
         {
@@ -86,7 +88,7 @@ public class CrewMember : MonoBehaviour
         state = AgentState.Dead;
         agent.enabled = false;
         DisableKinematics();   
-        rigidbody.AddForce(transform.forward * -500f);
+        rb.AddForce(dir * -knockbackForce);
         GameManager.instance.AddDeadMember(this);
     }
 

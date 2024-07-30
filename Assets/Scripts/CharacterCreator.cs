@@ -14,10 +14,10 @@ public class CharacterCreator : MonoBehaviour
     private GameObject upperBody;
     private GameObject lowerBody;
 
-    private PlayerController player;
+    private PlayerInteract player;
     void Awake()
     {
-        player = FindObjectOfType<PlayerController>().GetComponent<PlayerController>();
+        player = FindObjectOfType<PlayerInteract>().GetComponent<PlayerInteract>();
         ResetComponents();
     }
     public void ChangeHead(bool next)
@@ -72,6 +72,7 @@ public class CharacterCreator : MonoBehaviour
         }
         blankCharacter.transform.position = Vector3.zero;
         blankCharacter.AddComponent<CrewMember>();
+        blankCharacter.GetComponent<CrewMember>().upperBody = this.upperBody.transform;
         blankCharacter.layer = 9;
         ResetComponents();
         player.StopUsingWhiteBoard();

@@ -55,4 +55,9 @@ public class InputManager : MonoBehaviour
     {
         return playerControls.Player.Exit.triggered;
     }
+
+    public bool PlayerHandedOver()
+    {
+        return playerControls.Player.HandOver.triggered;
+    }
 }

@@ -4,12 +4,18 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    public PlayerController player {get;private set;}
+    public PlayerInteract player {get;private set;}
+    private string interactableUIText = "Use";
 
     void Start()
     {
-        player = FindObjectOfType<PlayerController>().GetComponent<PlayerController>();
+        player = FindObjectOfType<PlayerInteract>().GetComponent<PlayerInteract>();
     }
 
     public abstract void Interact();
+
+    public void ShowInteractableText()
+    {
+        UIManager.instance.SetUseText(interactableUIText);
+    }
 }

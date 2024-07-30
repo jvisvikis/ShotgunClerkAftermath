@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 4010654965017440356}
   - component: {fileID: 7775493669480058806}
   - component: {fileID: 6342738629255698943}
+  - component: {fileID: 8597002219056520311}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -450,7 +451,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 0
-  m_StepOffset: 0.3
+  m_StepOffset: 0.01
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -467,17 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
-  grabDistance: 5
   gravityValue: -9.81
-  recoilForce: -400
-  itemLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  shotgunPosOffset: {x: 0.7, y: -0.3, z: 0.6}
-  shotgunPickup: {fileID: 8300000, guid: c76487c0368313848b9992cd8babb788, type: 3}
 --- !u!114 &6342738629255698943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +483,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerVCam: {fileID: 4174242111693496264}
   whiteboardVCam: {fileID: 0}
+--- !u!114 &8597002219056520311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758238713976356754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81547a0eeb17aa4f96de7ab3ac1939c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabDistance: 5
+  recoilForce: -400
+  interactString: Use
+  giveString: Press H
+  itemLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  crewLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  shotgunPosOffset: {x: 0.7, y: -0.3, z: 0.6}
+  shotgunPlacementPos: {x: 0.05, y: 1, z: -0.19}
+  shotgunPlacementRot: {x: 35, y: -88.726, z: -100.713}
+  shotgunPickup: {fileID: 8300000, guid: c76487c0368313848b9992cd8babb788, type: 3}
 --- !u!1 &6220921671040247612
 GameObject:
   m_ObjectHideFlags: 0

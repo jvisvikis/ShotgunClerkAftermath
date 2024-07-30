@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     [SerializeField] private GameObject crosshair;
+    [SerializeField] private TextMeshProUGUI useText;
 
     void Awake()
     {
@@ -26,6 +27,11 @@ public class UIManager : MonoBehaviour
     public void ToggleCrosshairVisibility()
     {
         crosshair.SetActive(!crosshair.activeSelf);
+    }
+
+    public void SetUseText(string text)
+    {
+        useText.text = text;
     }
 
     

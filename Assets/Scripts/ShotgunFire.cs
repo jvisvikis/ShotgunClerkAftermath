@@ -49,9 +49,8 @@ public class ShotgunFire : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(cam.transform.position, bulletDir[i], out hit, bulletRange, canHitMask))
                 {
-                    Debug.Log(hit.collider.gameObject);
                     CrewMember crewMember = hit.collider.gameObject.GetComponent<CrewMember>(); 
-                    if(crewMember != null) crewMember.Die();
+                    if(crewMember != null) crewMember.Die(-bulletDir[i]);
                 }
                 TrailRenderer bulletTrail = Instantiate(trail,bulletSpawn.transform.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(bulletTrail, hit, bulletDir[i]));
