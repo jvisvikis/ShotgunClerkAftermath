@@ -31,11 +31,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _Blending: 1
+    - _Colour_Power: 1
     - _Texture_Intensity: 0.64
     - _Tiling: 0.25
     - _Triplanar_Texture_1: 1
     m_Colors:
     - _Frenel_Colour: {r: 0, g: 0, b: 0, a: 0}
+    - _Shadow_Colour: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &377331273459414564
 MonoBehaviour:

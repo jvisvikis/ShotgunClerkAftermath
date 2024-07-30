@@ -37,6 +37,7 @@ Material:
     - _Triplanar_Texture_1: 0
     m_Colors:
     - _Frenel_Colour: {r: 0, g: 0, b: 0, a: 0}
+    - _Shadow_Colour: {r: 0.9150943, g: 0.8613225, b: 0.82444817, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2862709948293425226
 MonoBehaviour:
