@@ -26,7 +26,6 @@ public class Father : MonoBehaviour
     void Awake()
     {
         gameManager = GameManager.instance;
-        textDisplay = UIManager.instance.textDisplay;
         player = FindObjectOfType<PlayerController>().gameObject;
     }
 

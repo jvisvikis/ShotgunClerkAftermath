@@ -60,14 +60,14 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if(aliveMembers.Count >= numMembersSuccess && AllHaveShotgun())
+        if(aliveMembers.Count >= numMembersSuccess)
         {
-
+            UIManager.instance.PlayHeistCutscene(true);
         }
         
         if(aliveMembers.Count < numMembersSuccess)
         {
-            StartCoroutine(UIManager.instance.FadeInAndOutText("Not enough members", 3f));
+            UIManager.instance.PlayHeistCutscene(false);
         }
 
     }

@@ -9,30 +9,47 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    [SerializeField] private AudioClip [] heistClips;
     [SerializeField] private GameObject crosshair;
+    [SerializeField] private Image heistPanel;
     [SerializeField] private TextMeshProUGUI useText;
     [SerializeField] private TextMeshProUGUI cantHeistText;
     [SerializeField] private TextMeshProUGUI subtitles;
+    [SerializeField] private Texture [] storyboards;
+    [SerializeField] private RawImage heistImage;
 
     public TextDisplay textDisplay{get;set;}
 
+
     void Awake()
     {
-        if(instance != null && instance != this)
+        if(instance == null || instance != this)
         {
-            Destroy(this.gameObject);
+            instance = this;
+            heistPanel.gameObject.SetActive(false);
+            heistImage.gameObject.SetActive(false);
+            textDisplay = GetComponent<TextDisplay>();
         }
         else
         {
-            instance = this;
-            textDisplay = GetComponent<TextDisplay>();
-            DontDestroyOnLoad(this);
+            Destroy(this);
         }
     }
 
-    public void ToggleSubtitlesVisibility()
+    public void SetHeistImage(bool successful)
     {
+        int idx = successful ? 1 : 0;
+        heistImage.texture = storyboards[idx];
+    }
 
+    public void SetSubtitlesVisibility(bool active)
+    {
+        subtitles.gameObject.SetActive(active);
+    }
+
+    public void SetUseText(string text)
+    {
+        useText.text = text;
     }
 
     public void ToggleCrosshairVisibility()
@@ -40,9 +57,31 @@ public class UIManager : MonoBehaviour
         crosshair.SetActive(!crosshair.activeSelf);
     }
 
-    public void SetUseText(string text)
+    public void PlayHeistCutscene(bool successful)
     {
-        useText.text = text;
+        SetHeistImage(successful);
+        StartCoroutine(HeistCutscene(successful));
+    }
+
+    public IEnumerator HeistCutscene(bool successful)
+    {
+        int idx = successful ? 1 : 0;
+        float timer = 0;
+        heistPanel.gameObject.SetActive(true);
+        while(timer < 2f)
+        {
+            timer += Time.deltaTime;
+            Color c = Color.black;
+            c.a = timer/2f;
+            heistPanel.color = c;
+            yield return null;
+        }
+        heistImage.gameObject.SetActive(true);
+        AudioManager.instance.Play2DAudio(heistClips[idx],1,false,false);
+
+        yield return new WaitForSeconds(heistClips[idx].length);
+        ScenesManager.instance.ReloadActiveScene();
+
     }
 
     public IEnumerator FadeInAndOutText(string text, float duration)
