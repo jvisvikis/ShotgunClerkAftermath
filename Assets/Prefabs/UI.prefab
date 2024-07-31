@@ -345,7 +345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33786e89e6a683b4a9e22e3a8240c533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heistClips: []
+  heistClips:
+  - {fileID: 8300000, guid: cc4e05aa1aaae4e4786d091ce7fb7998, type: 3}
+  - {fileID: 8300000, guid: 86a95d83964dd1d4ea3492816235d2b8, type: 3}
   crosshair: {fileID: 7674900135046632460}
   heistPanel: {fileID: 2676461721355119654}
   useText: {fileID: 4624724510398388154}

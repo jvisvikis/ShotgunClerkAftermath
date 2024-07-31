@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(UIManager.instance.FadeInAndOutText("Not all members are armed", 3f));
             return;
         }
-
+        Debug.Log(aliveMembers.Count);
         if(aliveMembers.Count >= numMembersSuccess)
         {
             UIManager.instance.PlayHeistCutscene(true);
@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour
 
     public void OnSceneLoad()
     {
+        aliveMembers.Clear();
+        deadMembers.Clear();
         if(FindObjectOfType<Father>() != null && !tutorialAudioPlayed) 
         {
             tutorialAudioPlayed = true;

@@ -78,9 +78,11 @@ public class CharacterCreator : MonoBehaviour
         blankCharacter.AddComponent<CrewMember>();
         blankCharacter.GetComponent<CrewMember>().upperBody = this.upperBody.transform;
         blankCharacter.layer = 9;
+        GameManager.instance.AddAliveMember(blankCharacter.GetComponent<CrewMember>());
         ResetComponents();
         player.StopUsingWhiteBoard();
         AudioManager.instance.Play2DAudio(fatherCreationLine,1f,false,false);
+        
         
         if(!intro)
         {
