@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42808cbf81cafbd4ba50da08d8782b52, type: 3}
   m_Name: HeadParts
   m_EditorClassIdentifier: 
-  yOffset: 0
+  shortYOffset: 0
+  longYOffset: 0
   parts:
   - {fileID: 5549142212501237481, guid: 6a48e45b496045f4fa6accb633440f09, type: 3}
   - {fileID: 8276338636532568986, guid: 4180610a17eb62d48b8e276742b67e22, type: 3}
   - {fileID: 7552061186094024158, guid: 31e43da7cdc196c4ab0945108b406a6c, type: 3}
   - {fileID: 7685441530097508489, guid: daa642fe170d8584b86bf514a5e66c9c, type: 3}
   - {fileID: 4763213740887220847, guid: 30d455081da185a4889679a162096c33, type: 3}
+  - {fileID: 4150071701156883120, guid: b008cfc0e13c61d4e9e132e43d62d8ef, type: 3}
   - {fileID: 4763962435649536504, guid: 6fbc04271dfdf944c8b8060530a6dbf3, type: 3}
   - {fileID: 4931782717904866452, guid: 7e6220bfcb8ce3b44a9407600541789c, type: 3}
   - {fileID: 2641301446455325226, guid: f9eec9e744c8ac4409c126ba38c6a085, type: 3}
@@ -27,4 +29,4 @@ MonoBehaviour:
   - {fileID: 7057721136062301334, guid: 60e17b7f440e3a34eb84c295c662d2be, type: 3}
   - {fileID: 6056979629733738985, guid: f1d539a630487314bb85d00196e28de3, type: 3}
   - {fileID: 8307944217755252406, guid: 9aee5248229949f4ab0be46c0ec59f5a, type: 3}
-  partsIdx: 27
+  partsIdx: 28

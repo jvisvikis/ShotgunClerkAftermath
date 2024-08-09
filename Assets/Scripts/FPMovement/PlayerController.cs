@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float gravityValue = -9.81f;
+    [SerializeField] private float jumpHeight = 1.0f;
 
     private bool groundedPlayer;
 
@@ -35,6 +36,11 @@ public class PlayerController : MonoBehaviour
         move = cam.transform.forward * move.z + cam.transform.right * move.x;
         move.y = 0;
         controller.Move(move * Time.deltaTime * playerSpeed);
+
+        if (inputManager.PlayerJumped() && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }

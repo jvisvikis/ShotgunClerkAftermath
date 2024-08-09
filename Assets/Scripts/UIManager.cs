@@ -80,7 +80,13 @@ public class UIManager : MonoBehaviour
         AudioManager.instance.Play2DAudio(heistClips[idx],1,false,false);
 
         yield return new WaitForSeconds(heistClips[idx].length);
-        ScenesManager.instance.ReloadActiveScene();
+        if(successful)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            ScenesManager.instance.LoadScene(0);
+        }
+        else ScenesManager.instance.ReloadActiveScene();
 
     }
 

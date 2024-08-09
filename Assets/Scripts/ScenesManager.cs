@@ -35,6 +35,7 @@ public class ScenesManager : MonoBehaviour
     // called second
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if(scene.buildIndex == 0) GameManager.instance.fullTutPlayed = false;
         GameManager.instance.OnSceneLoad();
     }
     

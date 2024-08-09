@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float maxDeadMembers;
     [SerializeField] private float numMembersSuccess;
 
+    public bool fullTutPlayed {get; set;}
     private bool playedAudio;
     private bool tutorialAudioPlayed;
     private int successfulHeists;
@@ -76,9 +77,8 @@ public class GameManager : MonoBehaviour
     {
         aliveMembers.Clear();
         deadMembers.Clear();
-        if(FindObjectOfType<Father>() != null && !tutorialAudioPlayed) 
+        if(FindObjectOfType<Father>() != null && !fullTutPlayed) 
         {
-            tutorialAudioPlayed = true;
             FindObjectOfType<Father>().StartIntro();
         }
        

@@ -139,10 +139,11 @@ public class PlayerInteract : MonoBehaviour
                 itemEquipped.GetComponent<Recoil>().enabled = false;
                 itemEquipped = null;
                 shotgun = null;
-                if(!handOverOnce)
+                if(!handOverOnce && !GameManager.instance.fullTutPlayed)
                 {
                     handOverOnce = true;
                     StartCoroutine(FindObjectOfType<Father>().StartTalking(handOverLines,handOverAudioLines,0,2));
+                    GameManager.instance.fullTutPlayed = true;
                 }
 
             }

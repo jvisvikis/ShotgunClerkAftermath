@@ -15,8 +15,13 @@ MonoBehaviour:
   shortYOffset: -0.1
   longYOffset: 0.45
   parts:
+  - {fileID: 8700006311355612363, guid: 2065079f9a291b94bace7b1c096de82f, type: 3}
+  - {fileID: 8427266866699639535, guid: e0825ea23e3001e429ffb06d36378307, type: 3}
+  - {fileID: 6461785213603344424, guid: 35378acea11ee38488da8e3c9b3b37be, type: 3}
+  - {fileID: 2812569662725300101, guid: e93a21886c2526e4ea1757a631412018, type: 3}
   - {fileID: 1560937032507921348, guid: 12b1465844423224e801e40017bc7db4, type: 3}
+  - {fileID: 3989170808877330800, guid: ce9c8f7f1d7e0de4e9c60aa2a7fc1a02, type: 3}
+  - {fileID: 2623335310136675417, guid: 3dcdf63ae35626846946efd322049fb1, type: 3}
   - {fileID: 5387895463746805908, guid: 8b0474737c562d54d907bfef8090aff8, type: 3}
   - {fileID: 3213490860115948315, guid: d1849a94b4499f64facce4de2a6d6a68, type: 3}
-  - {fileID: 8700006311355612363, guid: 2065079f9a291b94bace7b1c096de82f, type: 3}
-  partsIdx: 225
+  partsIdx: 0

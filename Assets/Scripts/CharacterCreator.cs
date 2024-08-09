@@ -78,16 +78,25 @@ public class CharacterCreator : MonoBehaviour
         blankCharacter.AddComponent<CrewMember>();
         blankCharacter.GetComponent<CrewMember>().upperBody = this.upperBody.transform;
         blankCharacter.layer = 9;
+        ChangeLayersRecursively(blankCharacter.transform, 9);
         GameManager.instance.AddAliveMember(blankCharacter.GetComponent<CrewMember>());
         ResetComponents();
         player.StopUsingWhiteBoard();
         AudioManager.instance.Play2DAudio(fatherCreationLine,1f,false,false);
         
         
-        if(!intro)
+        if(!GameManager.instance.fullTutPlayed)
         {
-            intro = true;
             StartCoroutine(ContinueAudio());
+        }
+    }
+
+    public void ChangeLayersRecursively(Transform t, int layer)
+    {
+        for(int i = 0; i<t.childCount; i++)
+        {
+            t.GetChild(i).gameObject.layer = layer;
+            ChangeLayersRecursively(t.GetChild(i).gameObject.transform, layer);
         }
     }
 

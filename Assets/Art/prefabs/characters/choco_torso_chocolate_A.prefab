@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5015070108624030723}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_torso_chocolate_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1611607810983777567}
   - component: {fileID: 8059104660335519068}
   - component: {fileID: 3242337521857554017}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: choco_torso_chocolate_A_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
